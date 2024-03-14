@@ -4,6 +4,13 @@ import axios from 'axios'
 
 const runtimeConfig = useRuntimeConfig()
 
+interface getterType {
+  getters: {
+    getName: string,
+    getType: string
+  }
+}
+
 interface stateType {
   name: string,
   type: string
@@ -14,13 +21,6 @@ const API:any = {
   logout: "auth/logout",
   register: "auth/register",
   user_update: "user/update"
-}
-
-interface getterType {
-  getters: {
-    getName: string,
-    getType: string
-  }
 }
 
 export default createStore({
