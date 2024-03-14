@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* icons */
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: 100% auto;
+    vertical-align: middle;
+}
+.icon--profile {
+    background-image: url("/img/profile.png");
+}
+.icon--logout {
+    background-image: url("/img/logout.png");
+}
