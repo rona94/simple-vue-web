@@ -16,6 +16,13 @@ const API:any = {
   user_update: "user/update"
 }
 
+interface getterType {
+  getters: {
+    getName: string,
+    getType: string
+  }
+}
+
 export default createStore({
   state: {
     name: "",
@@ -30,7 +37,7 @@ export default createStore({
     }
   },
   actions: {
-    data: async ({ getters }, data:any) => {
+    data: async ({ getters }: getterType, data:any) => {
       try {
         let headers = {}
         let token = localStorage.getItem("token")
@@ -73,10 +80,10 @@ export default createStore({
     },
   },
   getters: {
-    getName: (state:stateType) => {
+    getName: (state:stateType) : string => {
       return state.name
     },
-    getType: (state:stateType) => {
+    getType: (state:stateType) : string => {
       return state.type
     },
   }
