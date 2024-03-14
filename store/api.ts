@@ -4,6 +4,11 @@ import axios from 'axios'
 
 const runtimeConfig = useRuntimeConfig()
 
+interface stateType {
+  name: string,
+  type: string
+}
+
 const API:any = {
   login: "auth/login",
   logout: "auth/logout",
@@ -17,15 +22,15 @@ export default createStore({
     type: ""
   },
   mutations: {
-    setName: (state, name) => {
+    setName: (state:stateType, name:string) => {
       state.name = API[name]
     },
-    setType: (state, type) => {
+    setType: (state:stateType, type:string) => {
       state.type = type
     }
   },
   actions: {
-    data: async ({ getters }, data) => {
+    data: async ({ getters }, data:any) => {
       try {
         let headers = {}
         let token = localStorage.getItem("token")
@@ -66,21 +71,12 @@ export default createStore({
         }
       }
     },
-    testtest: (nyot) => {
-      return new Promise((resolve, reject) => {
-        try {
-          resolve("nyot")
-        } catch (error) {
-          reject(error)
-        }
-      })
-    }
   },
   getters: {
-    getName: (state) => {
+    getName: (state:stateType) => {
       return state.name
     },
-    getType: (state) => {
+    getType: (state:stateType) => {
       return state.type
     },
   }
